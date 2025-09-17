@@ -2,59 +2,65 @@ import java.sql.ClientInfoStatus;
 import java.util.List;
 
 public class Pessoa {
-    private String pessoa1;
-    private String pessoa2;
-    private  int contadorAnimais;
-    private List<String>pessoa;
-  public void Adotar(Pessoa Pessoa ){
-      if(contadorAnimais>=3){
-          System.out.println("O maxino de Animal disponivel para adoçao é 3");
-
-      }else{
-          System.out.println("Parabéns pela Adocao");
-          contadorAnimais++;
-      }
-  }
+    private String pessoa;
+    private List<String>brinquedos;
+    private int contandor;
 
     public Pessoa() {
     }
 
-    public Pessoa(String pessoa1, String pessoa2, int contadorAnimais, List<String> pessoa) {
-        this.pessoa1 = pessoa1;
-        this.pessoa2 = pessoa2;
-        this.contadorAnimais = contadorAnimais;
-        this.pessoa= pessoa;
+    public Pessoa(String pessoa, List<String> brinquedos, int contandor) {
+        this.pessoa = pessoa;
+        this.brinquedos = brinquedos;
+        this.contandor = contandor;
     }
-
-    public String getPessoa1() {
-        return pessoa1;
+    public boolean temBrinquedos(){
+        return !brinquedos.isEmpty();
     }
+public Boolean PodeAdotar(int contandor){
+        if(contandor <3){
+            System.out.println("O animal esta disponivel para adoção");
+            return  true;
+        }else {
+            System.out.println("O limite de Animal é 3 ,o animal deve  retornar para o abrigo ");
+            return  false;
+        }
 
-    public void setPessoa1(String pessoa1) {
-        this.pessoa1 = pessoa1;
-    }
-
-    public String getPessoa2() {
-        return pessoa2;
-    }
-
-    public void setPessoa2(String pessoa2) {
-        this.pessoa2 = pessoa2;
-    }
-
-    public int getContadorAnimais() {
-        return contadorAnimais;
-    }
-
-    public void setContadorAnimais(int contadorAnimais) {
-        this.contadorAnimais = contadorAnimais;
-    }
-
-    public List<String> getBriquedos() {
+}
+  public List<String>getBrinquedos(){
+         return  this.brinquedos;
+  }
+    public String getPessoa() {
         return pessoa;
     }
 
-    public void setBriquedos(List<String> briquedos) {
-        this.pessoa = briquedos;
+    public void setPessoa(String pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public List<String> getBrinquedos() {
+        return brinquedos;
+    }
+
+    public void setBrinquedos(List<String> brinquedos) {
+        this.brinquedos = brinquedos;
+    }
+
+    public int getContandor() {
+        return contandor;
+    }
+
+    public void setContandor(int contandor) {
+        this.contandor = contandor;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "pessoa='" + pessoa + '\'' +
+                ", brinquedos=" + brinquedos +
+                ", contandor=" + contandor +
+                '}';
     }
 }

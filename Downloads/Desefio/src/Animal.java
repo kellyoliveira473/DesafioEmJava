@@ -1,51 +1,35 @@
+
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Animal {
-      private String tipoAnimal;
-     private String nome;
-    private List<String> briquedos;
-
+    private String nome;
+    private String raça;
+    private List<String>brinquedos;
+    private List<String>animais;
 
     public Animal() {
     }
 
-    public Animal(String tipoAnimal, String nome, List<String> briquedos) {
-        this.tipoAnimal = tipoAnimal;
+    public Animal(String nome, String raça, List<String> brinquedos, List<String> animais) {
         this.nome = nome;
-        this.briquedos = briquedos;
+        this.raça = raça;
+        this.brinquedos = brinquedos;
+        this.animais = animais;
+
     }
-    public String PodeAdota(Pessoa pessoa,Animal animal){
-    List<String>brinquedosPessoa1=pessoa.getBriquedos();
-    List<String>brinquedosAnimal=animal.getBriquedos();
-     if(animal.getNome().equalsIgnoreCase("Loco")){
-         return animal.getNome()+"Pessoa"+pessoa.getNumero;
+    public boolean podeAdotar(Pessoa pessoa){
+        if(brinquedos != null){
+            List<String>brinquedosPessoa = pessoa.getBrinquedos();
+            for(int i =0; i < brinquedos.size(); i++){
+                if (!brinquedosPessoa.contains(brinquedos.get(i))){
+                    return false;
+                }
+            }
+        }
+        return true;
 
-     }
-     int numero =0;
-     for(String brinquedosAnimal:brinquedosAnimal){
-         boolean adotado=false;
-         while (numero<brinquedoPessoa.size()){
-             if (brinquedosPessoa.get(numero.equalsIgnoreCase(brinquedosAnimal){
-                 adotado=true;
-                 numero++;
-                 break;
-             }
-             numero++;
-         }
-         if (!adotado){
-         return animal.getNome()+"Abrido"
-         }
-
-     }
-     return animal.getNome()+"Pessoa"+getNumero();
-    }
-
-    public String getTipoAnimal() {
-        return tipoAnimal;
-    }
-
-    public void setTipoAnimal(String tipoAnimal) {
-        this.tipoAnimal = tipoAnimal;
     }
 
     public String getNome() {
@@ -56,11 +40,27 @@ public class Animal {
         this.nome = nome;
     }
 
-    public List<String> getBriquedos() {
-        return briquedos;
+    public String getRaça() {
+        return raça;
     }
 
-    public void setBriquedos(List<String> briquedos) {
-        this.briquedos = briquedos;
+    public void setRaça(String raça) {
+        this.raça = raça;
+    }
+
+    public List<String> getBrinquedos() {
+        return brinquedos;
+    }
+
+    public void setBrinquedos(List<String> brinquedos) {
+        this.brinquedos = brinquedos;
+    }
+
+    public List<String> getAnimais() {
+        return animais;
+    }
+
+    public void setAnimais(List<String> animais) {
+        this.animais = animais;
     }
 }
